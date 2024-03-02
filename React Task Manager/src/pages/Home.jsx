@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import userAuth from '../../appwrite/userconfig';
 import { useNavigate } from 'react-router-dom';
-import Login from './Login';
+import { useSelector} from 'react-redux'
 
 function Home() {
   const [userLoggedIn, setUserLoggedIn] = useState(true);
   const navigate = useNavigate();
+  const userStatus = useSelector((state) => state.userStatus.value)
   useEffect(()=>{
-    userAuth.getCurrentUser().then((user) =>{
-      if(user) {
-        setUserLoggedIn(false)
-      }
-      else {
-        navigate('/login')
-      }
-    })
+    if (userStatus){
+      setUserLoggedIn(false)
+    } else {
+      navigate('/login')
+    }
   },[])
   return (
     <div>Home <p>{userLoggedIn}</p></div>

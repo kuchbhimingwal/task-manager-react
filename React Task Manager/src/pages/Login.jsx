@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import Input from '../componenets/Input'
 import userAuth from '../../appwrite/userconfig'
 import { useSelector, useDispatch } from 'react-redux'
-import {login, logout} from '../store/authSlice'
+import {login} from '../store/authSlice'
 
 function Login() {
   const navigate = useNavigate();
