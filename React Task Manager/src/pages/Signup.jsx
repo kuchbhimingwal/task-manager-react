@@ -4,10 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/TASMANG@2x.png'
 import signupImg from '../assets/Group 24@2x.png'
 import Input from '../componenets/Input';
+import userAuth from '../../appwrite/userconfig'
 
 function Signup() {
   const navigate = useNavigate();
   const {register, handleSubmit} = useForm();
+  const submit = async(user) =>{
+    const name = user.firstName +" "+ user.lastName;
+    const email = user.email;
+    const password = user.password;
+    try {
+      const user = await userAuth.createUser(email, password, name)
+      if(user) {
+        alert("signed up")
+        // navigate('/login')
+      }
+    } catch (error) {
+      console.log("sign up error:" + error)
+    }
+
+  }
   const navLogin = ()=> {
     navigate('/login')
   }
@@ -23,36 +39,48 @@ function Signup() {
             <p className='mt-3'>Welcome!</p>
           </div>
           <div className='w-full'>
+
+          
+          <form onSubmit={handleSubmit(submit)}>
             <div className='flex'>
               <Input 
                 type="text"
                 label="First Name"
                 placeholder="First Name"
                 className="w-1/2"
+                {...register("firstName")}
               />
               <Input 
                 type="text"
                 label="Last Name"
                 placeholder="Last Name"
                 className="w-1/2 mr-0"
+                {...register("lastName")}
               />
             </div>
+            </form>
+            <form onSubmit={handleSubmit(submit)}>
             <Input 
               label="Email:"
               placeholder="Enter your email"
               type="email"
+              {...register("email")}
             />
             <Input 
               label="Password:"
               placeholder="Password"
               type="password"
+              {...register("password")}
             />
+            </form>
           </div>
 
           <div className='w-full'>
+          <form onSubmit={handleSubmit(submit)}>
             <button onClick={navLogin} className='w-full mt-5 h-10 m-1 bg-TBlue text-white'>login</button>
             <p className='mt-3'>Already a user?</p>
-            <button className='w-full mt-3 h-10 m-1 bg-TBlue text-white'>signup</button>
+            <button type="submit" className='w-full mt-3 h-10 m-1 bg-TBlue text-white'>signup</button>
+            </form>
           </div>
         </div>
       </div>

@@ -12,12 +12,12 @@ export class UserAuth{
     this.account = new Account(this.client);
   }
 
-  async createUser(email, password, name, label){
+  async createUser(email, password, name, label="person"){
     try {
       const userAccount = await this.account.create(ID.unique(), email, password, name, { label } );
       if(userAccount){
-        return loginAccount(userAccount)
-      }else {
+      //   return loginAccount(userAccount)
+      // }else {
         return userAccount
       }
     } catch (error) {
@@ -28,7 +28,7 @@ export class UserAuth{
 
   async loginAccount({email, password}){
     try {
-      return await this.account.createEmailPasswordSession(email, password);
+      return await this.account.createEmailSession(email, password);
     } catch (error) {
       console.log("login error" + error)
       throw error
