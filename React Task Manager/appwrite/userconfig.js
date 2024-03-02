@@ -35,12 +35,11 @@ export class UserAuth{
     }
   }
 
-  async getCurrentUsers(){
+  async getCurrentUser(){
     try {
       return await this.account.get()
     } catch (error) {
       console.log(error)
-      throw error
     }
   }
 
