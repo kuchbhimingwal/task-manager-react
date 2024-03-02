@@ -5,16 +5,26 @@ import logo from '../assets/TASMANG@2x.png'
 import { useNavigate } from 'react-router-dom'
 import Input from '../componenets/Input'
 import userAuth from '../../appwrite/userconfig'
+import { useSelector, useDispatch } from 'react-redux'
+import {login, logout} from '../store/authSlice'
 
 function Login() {
   const navigate = useNavigate();
+  const userStatus = useSelector((state) => state.userStatus.value)
+  const dispatch = useDispatch()
+
   const {register, handleSubmit} = useForm();
   const handleLogin = async(user) =>{
     const email = user.email;
     const password = user.password;
     try {
       const userInfo = await userAuth.loginAccount({email,password})
-      if (userInfo) console.log(userInfo)
+      if (userInfo) {
+        navigate('/')
+        dispatch(login())
+        console.log(userStatus)
+        console.log(userInfo)
+      }
     } catch (error) {
       alert("login error:"+error)
     }

@@ -1,5 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit'
+import statusReducers from './authSlice'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    userStatus : statusReducers,
+  },
 })

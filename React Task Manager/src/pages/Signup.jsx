@@ -16,8 +16,7 @@ function Signup() {
     try {
       const user = await userAuth.createUser(email, password, name)
       if(user) {
-        alert("signed up")
-        // navigate('/login')
+        navigate('/login')
       }
     } catch (error) {
       console.log("sign up error:" + error)
