@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Sidenav() {
   return (
-    <div className='w-1/4'>
+    <div className='w-1/4 mt-10'>
       <ul>
         <li className='flex mt-10'>
             <div className=''>

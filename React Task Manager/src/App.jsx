@@ -7,6 +7,7 @@ import {login, logout} from './store/authSlice'
 import Header from './componenets/Header';
 import Footer from './componenets/Footer';
 import Sidenav from './componenets/Sidenav';
+import Heading from './componenets/Heading';
 
 function App() {
 const [loading, setLoading] = useState(true);
@@ -31,7 +32,10 @@ useEffect(()=>{
       {location.pathname != "/login" && location.pathname != "/signup" ? <Header/> : null}
       <div className='flex'>
         <Sidenav />
-        <Outlet />
+        <div className='flex flex-col w-full'>
+          <Heading />
+          <Outlet />
+        </div>
       </div>
       {location.pathname != "/login" && location.pathname != "/signup" ? <Footer/> : null}
     </div>

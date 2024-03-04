@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors:{
-        TBlue: '#3254C1'
+        TBlue: '#3254C1',
+        TBlueLight: '#D5DDFF',
       }
     },
   },
