@@ -15,7 +15,9 @@ function Home() {
     }
   },[])
   return (
-    <div>Home <p>{userLoggedIn}</p></div>
+    <div>
+      
+    </div>
   )
 }
 

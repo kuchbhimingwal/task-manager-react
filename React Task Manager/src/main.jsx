@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Signup from './pages/Signup.jsx'
 import {store} from './store/store.js'
 import { Provider } from 'react-redux'
+import Projects from './pages/Projects.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       },
+      {
+        path: '/projects',
+        element: <Projects />
+      }
 
     ]
   }
