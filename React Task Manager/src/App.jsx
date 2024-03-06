@@ -31,9 +31,9 @@ useEffect(()=>{
     <div className='ml-10 mr-10'>
       {location.pathname != "/login" && location.pathname != "/signup" ? <Header/> : null}
       <div className='flex'>
-        <Sidenav />
+      {location.pathname != "/login" && location.pathname != "/signup" ? <Sidenav/> : null}
         <div className='flex flex-col w-full'>
-          <Heading />
+        {location.pathname != "/login" && location.pathname != "/signup" ? <Heading/> : null}
           <Outlet />
         </div>
       </div>
