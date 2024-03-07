@@ -10,7 +10,6 @@ import {login} from '../store/authSlice'
 
 function Login() {
   const navigate = useNavigate();
-  const userStatus = useSelector((state) => state.userStatus.value)
   const dispatch = useDispatch()
 
   const {register, handleSubmit} = useForm();
