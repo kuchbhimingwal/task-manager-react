@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import userAuth from "../appwrite/userconfig"
+import projectconfig from '../appwrite/projectConfig';
 import './App.css'
 import { Outlet, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
@@ -15,7 +16,6 @@ const dispatch = useDispatch();
 const location = useLocation()
 
 useEffect(()=>{
-  console.log(location.pathname)
   userAuth.getCurrentUser()
   .then((userData)=>{
     if(userData){

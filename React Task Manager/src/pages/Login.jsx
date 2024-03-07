@@ -20,10 +20,8 @@ function Login() {
     try {
       const userInfo = await userAuth.loginAccount({email,password})
       if (userInfo) {
-        navigate('/')
         dispatch(login())
-        console.log(userStatus)
-        console.log(userInfo)
+        navigate('/')
       }
     } catch (error) {
       alert("login error:"+error)

@@ -99,3 +99,6 @@ export class projectConfig{
     }
   }
 }
+
+const projectconfig = new projectConfig()
+export default projectconfig
