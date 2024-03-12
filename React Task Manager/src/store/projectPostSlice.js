@@ -11,7 +11,7 @@ const projectPostSlice = createSlice({
   initialState,
   reducers:{
     addToProjects : (state, action)=>{
-      state.value.push(action.payload)
+      state.value = action.payload
     }
   }
 })
